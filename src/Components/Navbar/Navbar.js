@@ -19,15 +19,19 @@ const Navbar = () => {
 
 
 
+
                         </ul>
                     </div>
                     <p className="btn btn-ghost normal-case text-3xl text-blue-900">Online-Tution-Platform</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal ml-4 text-blue-700 font-bold text-3xl space-x-3 p-0">
-                        <Link to='/Math'>Math</Link>
-                        <Link to='/Physics'>Physics</Link>
-                        <Link to='/Chemistry'>Chemistry</Link>
+                        <Link to='/Courses'>Courses</Link>
+                        <Link to='/login'>Login</Link>
+                        <Link to='/registration'>Registration</Link>
+                        <Link to='/blog'>Blog</Link>
+                        <Link to='/logout'>Logout</Link>
+
                     </ul>
                 </div>
                 <div className="dropdown dropdown-hover  ml-16">
