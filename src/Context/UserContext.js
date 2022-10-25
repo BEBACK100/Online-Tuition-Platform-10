@@ -1,11 +1,13 @@
 import React from 'react';
 import { createContext } from 'react';
 export const Authcontext = createContext()
-const UserContext = () => {
+const UserContext = ({ children }) => {
+    const user = { email: 'llll' }
+    const authinfo = { user }
     return (
-        <div>
-
-        </div>
+        <Authcontext.Provider value={authinfo}>
+            {children}
+        </Authcontext.Provider>
     );
 };
 
