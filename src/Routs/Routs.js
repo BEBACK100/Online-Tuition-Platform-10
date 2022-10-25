@@ -7,18 +7,17 @@ import Physics from "../Components/Courses/Physics";
 import Home from "../Components/Home/Home";
 import Logout from "../Components/Logout/Logout";
 import Registration from "../Components/Registration/Registration";
-import Signin from "../Components/Signin/Signin";
+import Login from "../Components/Signin/Login";
+
 import Main from "../Layout/Main";
+import Privateroute from "./Privateroute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         children: [
-            {
-                path: 'login',
-                element: <Signin></Signin>
-            },
+
             {
                 path: 'blog',
                 element: <Blog></Blog>
@@ -30,28 +29,35 @@ export const router = createBrowserRouter([
             {
                 path: 'registration',
                 element: <Registration></Registration>
+            },
+            {
+                path: 'login',
+                element: <Login></Login>
+            },
+            {
+                path: 'courses',
+                element: <Privateroute><Courses></Courses></Privateroute>
+            },
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/Courses/Math',
+                element: <Math></Math>
+            },
+            {
+                path: '/Courses/Physics',
+                element: <Physics></Physics>
+            },
+            {
+                path: '/Courses/Chemistry',
+                element: <Chemistry></Chemistry>
             }
+
+
         ]
 
     },
-    {
-        path: 'courses',
-        element: <Courses></Courses>
-    },
-    {
-        path: 'home',
-        element: <Home></Home>
-    },
-    {
-        path: '/Courses/Math',
-        element: <Math></Math>
-    },
-    {
-        path: '/Courses/Physics',
-        element: <Physics></Physics>
-    },
-    {
-        path: '/Courses/Chemistry',
-        element: <Chemistry></Chemistry>
-    }
+
 ])

@@ -27,9 +27,9 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal ml-4 text-blue-700 font-bold text-3xl space-x-3 p-0">
                         <Link to='/Courses'>Courses</Link>
-                        <Link to='/login'>Login</Link>
-                        <Link to='/registration'>Registration</Link>
                         <Link to='/blog'>Blog</Link>
+                        <Link to='/registration'>Registration</Link>
+                        <Link to='/login'>Login</Link>
                         <Link to='/logout'>Logout</Link>
 
                     </ul>
