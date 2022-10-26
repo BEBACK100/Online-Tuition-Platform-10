@@ -6,7 +6,7 @@ import { Authcontext } from '../../Context/UserContext';
 
 const Registration = () => {
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/courses'
+    const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate();
     const { createUser } = useContext(Authcontext)
     const [error, setError] = useState(null);

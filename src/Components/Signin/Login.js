@@ -1,12 +1,25 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../Context/UserContext';
 
 const Login = () => {
+
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate();
-    const { signin } = useContext(Authcontext)
+    const { signin, providerlogin } = useContext(Authcontext)
+
+    const googleProvider = new GoogleAuthProvider()
+    const handlegooglesignin = () => {
+        providerlogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
 
     const handlelogin = (event) => {
         event.preventDefault();
@@ -31,12 +44,10 @@ const Login = () => {
         <div>
 
             <div className="hero min-h-screen bg-base-200">
-                <div className="">
-                    <div className="text-center">
-                        <h1 className="text-5xl font-bold pt-5">Login now!</h1>
+                <div className="flex gap-8">
 
-                    </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <h1 className="text-5xl font-bold mb-4">Login now!</h1>
                         <form onSubmit={handlelogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -63,6 +74,13 @@ const Login = () => {
                             <Link className='text-blue-600 hover:bg-slate-300' to='/Registration'>Create A new Account</Link>
                         </form>
                     </div>
+                    <div>
+
+
+                        <button onClick={handlegooglesignin} className="btn btn-outline btn-wide mt-20 btn-primary w-25">  <FontAwesomeIcon icon="fa-solid fa-g" />Login with Google</button>
+
+                    </div>
+
                 </div>
             </div>
         </div>

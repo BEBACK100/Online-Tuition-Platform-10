@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ const Navbar = () => {
     return (
         <div>
 
-            <div className="navbar bg-blue-200">
+            <div className="navbar bg-blue-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,18 +44,25 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <div className="dropdown dropdown-hover  ml-16">
-                    <label tabIndex={0} className="btn m-1">Them</label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ">
-                        <li><Link to=''>Dark</Link ></li>
-                        <li><Link to=''>Light</Link></li>
-                    </ul>
 
-                </div>
-                <h1>{user?.email}</h1>
+                <h1 className='text-blue-500 text-xl font-bold ml-4'>{user?.email}</h1>
+                {
+                    user?.photoURL ?
+                        <img className='rounded-full h-20' src={user.photoURL} alt="" />
+                        : <FontAwesomeIcon icon="fa-regular fa-user" />
+
+                }
                 <div className="navbar-end">
+                    <div className="dropdown dropdown-hover bg-pink-200">
+                        <label tabIndex={0} className="btn m-1">Toggle</label>
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-blue-300 rounded-box w-52 ">
+                            <li><Link to=''>Dark</Link ></li>
+                            <li><Link to=''>Light</Link></li>
+                        </ul>
 
-                    <p className="btn text-2xl">  <Link to='/'>{`Home`} </Link></p>
+                    </div>
+
+                    <div><p className="btn text-2xl">  <Link to='/'>{`Home`} </Link></p></div>
                 </div>
             </div>
 
