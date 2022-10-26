@@ -8,6 +8,7 @@ import Home from "../Components/Home/Home";
 
 import Registration from "../Components/Registration/Registration";
 import Login from "../Components/Signin/Login";
+import Them from "../Components/Them/Them";
 
 import Main from "../Layout/Main";
 import Privateroute from "./Privateroute";
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login></Login>
+            },
+            {
+                path: 'them',
+                element: <Them></Them>
             },
             {
                 path: 'courses',

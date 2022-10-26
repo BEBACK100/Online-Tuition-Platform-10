@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div>
-            <div className=' grid grid-cols-2 bg-gradient-to-r from-blue-200 to-green-200'>
+            <div className=' grid grid-cols-2 bg-gradient-to-r from-blue-300 to-green-200'>
 
                 <div className=' text-3xl mt-20'>
 
@@ -26,7 +26,7 @@ const Home = () => {
                                 <div className="card-body">
 
                                     <h1 className='text-3xl'>You Can Registration From here</h1>
-                                    <div className="card-actions mx-auto">
+                                    <div className="card-actions mx-auto mt-8">
                                         <button className="btn btn-primary"><Link to='/registration text-3xl'>Click Me for <span className='text-red-500'>Registration</span> First</Link></button>
                                     </div>
                                 </div>

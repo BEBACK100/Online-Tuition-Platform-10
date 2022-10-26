@@ -12,6 +12,7 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setloading] = useState(true)
 
+
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -27,12 +28,14 @@ const UserContext = ({ children }) => {
         return signOut(auth);
     }
     useEffect(() => {
+
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('current user here', currentUser);
             setUser(currentUser)
             setloading(false)
         });
         return () => unsubscribe()
+
     }, [])
 
     const authinfo = { user, createUser, signin, logout, providerlogin, loading }
