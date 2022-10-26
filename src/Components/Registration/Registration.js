@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { EyeSlashIcon } from '@heroicons/react/24/solid'
 import { Authcontext } from '../../Context/UserContext';
 
 
 const Registration = () => {
-    const { createuser } = useContext(Authcontext)
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/courses'
+    const navigate = useNavigate();
+    const { createUser } = useContext(Authcontext)
     const [error, setError] = useState(null);
+
+
     const handlesubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -23,11 +28,12 @@ const Registration = () => {
             setError('Your Password did not match')
             return
         }
-        createuser(email, password)
+        createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
 

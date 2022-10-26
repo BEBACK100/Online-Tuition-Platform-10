@@ -5,7 +5,7 @@ import Courses from "../Components/Courses/Courses";
 import Math from "../Components/Courses/Math";
 import Physics from "../Components/Courses/Physics";
 import Home from "../Components/Home/Home";
-import Logout from "../Components/Logout/Logout";
+
 import Registration from "../Components/Registration/Registration";
 import Login from "../Components/Signin/Login";
 
@@ -22,10 +22,7 @@ export const router = createBrowserRouter([
                 path: 'blog',
                 element: <Blog></Blog>
             },
-            {
-                path: 'logout',
-                element: <Logout></Logout>
-            },
+
             {
                 path: 'registration',
                 element: <Registration></Registration>

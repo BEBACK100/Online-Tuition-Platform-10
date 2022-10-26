@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../../Context/UserContext';
 
 const Navbar = () => {
-    const { user } = useContext(Authcontext)
+    const { user, logout } = useContext(Authcontext)
     return (
         <div>
 
@@ -31,9 +31,15 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal ml-4 text-blue-700 font-bold text-3xl space-x-3 p-0">
                         <Link to='/Courses'>Courses</Link>
                         <Link to='/blog'>Blog</Link>
-                        <Link to='/registration'>Registration</Link>
-                        <Link to='/login'>Login</Link>
-                        <Link to='/logout'>Logout</Link>
+                        {
+                            user?.uid ?
+                                <button onClick={logout}>Logout</button>
+                                :
+                                <>
+                                    <Link to='/registration'>Registration</Link>
+                                    <Link to='/login'>Login</Link>
+                                </>}
+
 
                     </ul>
                 </div>
