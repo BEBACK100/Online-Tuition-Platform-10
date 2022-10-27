@@ -4,6 +4,7 @@ import Chemistry from "../Components/Courses/Chemistry";
 import Courses from "../Components/Courses/Courses";
 import Math from "../Components/Courses/Math";
 import Physics from "../Components/Courses/Physics";
+import FAQ from "../Components/FAQ/FAQ";
 import Home from "../Components/Home/Home";
 
 import Registration from "../Components/Registration/Registration";
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: 'blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: 'faq',
+                element: <FAQ></FAQ>
             },
 
             {

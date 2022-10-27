@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -17,7 +18,7 @@ const Login = () => {
         providerlogin(githubProvider)
             .then(result => {
                 const user = result.user;
-
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch(error => console.error(error))
@@ -26,6 +27,7 @@ const Login = () => {
         providerlogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch(error => console.error(error))
@@ -89,7 +91,8 @@ const Login = () => {
 
                         <button onClick={handlegooglesignin} className="btn btn-outline btn-wide mt-20 btn-primary w-25">  <FontAwesomeIcon icon="fa-solid fa-g" />Login with Google</button>
 
-                        <FontAwesomeIcon icon="fa-brands fa-github" /><button onClick={handlegithublogin} className="btn btn-outline btn-wide mt-20 btn-success w-25">  Login with GitHub</button>
+
+                        <button onClick={handlegithublogin} className="btn btn-outline btn-wide mt-20 btn-success w-25">  Login with GitHub</button>
                     </div>
                     <div>
 
