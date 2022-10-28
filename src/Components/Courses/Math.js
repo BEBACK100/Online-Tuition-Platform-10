@@ -1,11 +1,29 @@
 import React from 'react';
+import CourseSidebar from './CourseSidebar';
+
 
 
 const Math = () => {
     return (
-        <div>
+        <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-2'>
+                <div>
+                    <h1>card are here</h1>
+                    <CourseSidebar></CourseSidebar>
+                </div>
+            </div>
+            <div className='grid grid-cols-1'>
+                <h1>This is the Math page</h1>
+                <div className="card w-96 bg-base-100 shadow-xl">
 
-            <h1>This is the Math page</h1>
+                    <div className="card-body bg-blue-500 text-center mt-5">
+                        <h2 className="card-title text-4xl ">Math and Hgher math for SSC and HSC</h2>
+
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 };

@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../Context/UserContext';
 
 const Login = () => {
-
+    const [error, setError] = useState(null)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate();
@@ -24,6 +24,9 @@ const Login = () => {
             .catch(error => console.error(error))
     }
     const handlegooglesignin = () => {
+
+
+
         providerlogin(googleProvider)
             .then(result => {
                 const user = result.user;
@@ -41,6 +44,17 @@ const Login = () => {
         const password = form.password.value;
         const confirm = form.confirm.value;
         console.log(email, password, confirm)
+        if (password < 6) {
+            setError('password should be six characters or more')
+        }
+        if (password !== confirm) {
+
+            setError('Your Password did not match')
+            return
+        }
+        if (password === confirm) {
+
+        }
 
         signin(email, password)
             .then(result => {
@@ -48,6 +62,7 @@ const Login = () => {
                 console.log(user);
                 form.reset()
                 navigate(from, { replace: true });
+
             })
             .catch(error => console.error(error));
 
@@ -75,6 +90,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Conform Password</span>
                                 </label>
+                                <h1 className='text-red-400 text-3xl'>{error} </h1>
                                 <input type="password" name="confirm" className="input input-bordered" required />
                                 <label className="label">
                                     <Link to='' className="label-text-alt link link-hover">Forgot password?</Link>

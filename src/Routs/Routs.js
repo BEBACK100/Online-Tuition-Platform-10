@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Blog from "../Components/blog/Blog";
 import Chemistry from "../Components/Courses/Chemistry";
 import Courses from "../Components/Courses/Courses";
+import ICT from "../Components/Courses/ICT";
 import Math from "../Components/Courses/Math";
 import Physics from "../Components/Courses/Physics";
+import ProLanguar from "../Components/Courses/ProLanguar";
 import FAQ from "../Components/FAQ/FAQ";
 import Home from "../Components/Home/Home";
 
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
             {
                 path: '/Courses/Physics',
                 element: <Physics></Physics>
+            },
+            {
+                path: '/Courses/ICT',
+                element: <ICT></ICT>
+            },
+            {
+                path: '/Courses/Programming Language',
+                element: <ProLanguar></ProLanguar>
             },
             {
                 path: '/Courses/Chemistry',
