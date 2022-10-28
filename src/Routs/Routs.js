@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'faq',
-                element: <FAQ></FAQ>
+                element: <Privateroute> <FAQ></FAQ></Privateroute>
             },
 
             {

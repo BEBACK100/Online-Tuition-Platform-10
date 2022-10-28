@@ -23,9 +23,11 @@ const UserContext = ({ children }) => {
     }
 
     const providerlogin = (provider) => {
+        setloading(true)
         return signInWithPopup(auth, provider);
     }
     const logout = () => {
+
         return signOut(auth);
     }
     useEffect(() => {
